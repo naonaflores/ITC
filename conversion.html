@@ -1,0 +1,97 @@
+  <!DOCTYPE html>
+<html>
+<head>
+<style>
+  
+  <title>Conversion</title>
+
+  #maindiv {
+    display:grid;
+    width: 98%;
+  }
+
+  #headerdiv {
+    text-align: center;
+    background-color: bisque;
+  }
+
+  #headertitle {
+    text-align:center;
+  }
+
+</style>
+</head>
+<body>
+
+  <div id = "maindiv">
+  <div id = "headerdiv">
+  <h1 id = "headertitle">&#129518 Conversion &#129518</h1>
+  <h3>Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to Meters</h3>
+  </div>
+
+<br>
+
+<p>1. Fahrenheit to Celsius</p>
+
+<p>
+  <label>Fahrenheit</label>
+  <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="fahrtocelConverter(this.value)" onchange="fahrtocelConverter(this.value)">
+</p>
+<p>Celcius: <span id="outputCelcius"></span></p>
+
+<br><br><br>
+
+<p>2. Celsius to Fahrenheit</p>
+
+<p>
+  <label>Celsius</label>
+  <input id="inputCelsius" type="number" placeholder="Celsius" oninput="celtofahrConverter(this.value)" onchange="celtofahrConverter(this.value)">
+</p>
+<p>Fahrenheit: <span id="outputFahrenheit"></span></p>
+
+<br><br><br>
+
+<p>3. Meters to Feet</p>
+
+<p>
+  <label>Meters</label>
+  <input id="inputMeters" type="number" placeholder="Meters" oninput="MetertoFeetConverter(this.value)" onchange="MetertoFeetConverter(this.value)">
+</p>
+<p>Feet: <span id="outputFeet"></span></p>
+
+<br><br><br>
+
+<p>4. Feet to Meters</p>
+
+<p>
+  <label>Feet</label>
+  <input id="inputFeet" type="number" placeholder="Feet" oninput="FeettoMeterConverter(this.value)" onchange="FeettoMeterConverter(this.value)">
+</p>
+<p>Meters: <span id="outputMeters"></span></p>
+
+
+<script>
+function fahrtocelConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML=(valNum-32)/1.8;
+}
+
+function celtofahrConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputFahrenheit").innerHTML=(valNum*1.8)+32;
+}
+
+function MetertoFeetConverter(valNum) {
+  document.getElementById("outputFeet").innerHTML=valNum*3.2808;
+}
+
+function FeettoMeterConverter(valNum) {
+  document.getElementById("outputMeters").innerHTML=valNum/3.2808;
+}
+</script>
+
+<br><br><br>
+<a href = "index.html">Home</a>
+
+</body>
+</html>
