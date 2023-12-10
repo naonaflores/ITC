@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Naomi Flores ITC Nth Factorial, Sum and Average</title>
+
+<style>
+
+   #headerdiv {
+   text-align: center;
+   }
+
+   #footerdiv{
+    position: fixed;
+    bottom:0;
+    color: white;
+   }
+
+   #numberinput {
+    color: white;
+   }
+
+   #output {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+   }
+
+   label {
+   color: white;
+   }
+
+   a {
+    color: #C71585;
+    font-size: 20px;
+   }
+
+   body {
+   background-color:#DDA0DD;
+   text-align: center;
+   }
+
+</style>
+</head>
+<body>
+
+  <div id ="headerdiv">
+      <h1 id="pageheader" style ="color: white;">&#127800 Nth Factorial, Sum, and Average &#127800</h1>     
+   </div>
+    <div id ="footerdiv">
+      <h4 id="pagefooter">by Naomi Nathalie A. Flores</h4>     
+   </div>
+
+  <br><br><br><br><br>
+  <label for="numberInput" style ="font-size: 25px;">Enter a number (n): </label>
+  <input type="number" id="numberInput" min="1" style ="font-size: 20px" required>
+  <button onclick="calculate()">Calculate</button>
+
+  <div id="output" ></div>
+    
+    <br><br>
+    <a href = "index.html">Home</a>
+
+  <script>
+    function calculate() {
+      var n = document.getElementById('numberInput').value;
+
+      // nth factorial using a "While Loop"
+      var factorial = 1, i = 1;
+      while (i <= n) factorial *= i++;
+
+      // sum of the first n numbers using a "Do-While Loop"
+      var sum = 0, j = 1;
+      do sum += j++; while (j <= n);
+
+      // average of the first n numbers using "For Loop"
+      var total = 0;
+      for (var k = 1; k <= n; total += k++);
+
+      // results
+      var outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = `
+        <p>The factorial of ${n} is ${factorial}</p>
+        <p>The sum of the first ${n} numbers is ${sum}</p>
+        <p>The average of the first ${n} numbers is ${(total / n).toFixed(2)}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
