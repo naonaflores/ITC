@@ -1,0 +1,93 @@
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>Income Tax Calculator</title>
+
+<style>
+
+  #modal {
+  text-align: center;
+  }
+
+  body {
+  font-family: Garamond, serif;
+  }
+
+  h1 {
+  text-align:center;
+  background-color: skyblue;
+  }
+
+  a {
+  color: deeppink;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="card">
+      <h1>&#128201 Calculate your Income Tax &#128200</h1>
+      <hr>
+      <!-- Income Tax Form -->
+      <form name="incomeTaxForm" autocomplete="off">
+        <input id="income" type="float" step="0.01" name="income" min="0" placeholder="Income">
+         <a href="#modal" class="btn btnBig" onclick="calcIncomeTax()">Enter</a>
+        <input type="reset" name="reset" class="btn btnBig">
+      </form>
+      <!-- /Income Tax Form -->
+  </div>
+  
+  <!-- Modal -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modalDialog">
+    <div class="modalBody">
+      <p>Your Income Tax is Php <span id="total"></span></p>
+    </div>
+  </div>
+</div>
+
+<script>
+
+function calcIncomeTax() {
+  var preFormattedIncome = document.getElementById("income").value;
+  var income = preFormattedIncome.replace(/[^\d.-]/g, '');
+  
+  if (income < 0) {
+    // You didn't make money
+    // Also handles errors for negative numbers
+    document.getElementById("total").innerHTML = (0.00).toFixed(2);
+
+  } else if (income >= 0 && income < 250000) {
+      var incomeTax = income;
+      document.getElementById("total").innerHTML = "0";
+
+  } else if (income >= 250000 && income < 400000){
+      var incomeTax = ((income - 250000) * 0.20);
+      document.getElementById("total").innerHTML = incomeTax.toFixed(2);
+
+  } else if (income >= 400000 && income < 800000) {
+      var incomeTax = 30000 + ((income - 400000) * 0.25);
+      document.getElementById("total").innerHTML = incomeTax.toFixed(2);
+
+  } else if (income >= 800000 && income < 2000000) {
+      var incomeTax = 130000 + ((income - 800000) * 0.30);
+      document.getElementById("total").innerHTML = incomeTax.toFixed(2);
+
+  } else if (income >= 2000000 && income < 8000000) {
+      var incomeTax = 490000 + ((income - 2000000) * 0.32);
+      document.getElementById("total").innerHTML = incomeTax.toFixed(2);
+
+  } else {
+      var incomeTax = 2410000 + ((income - 8000000) * 0.35);
+      document.getElementById("total").innerHTML = incomeTax.toFixed(2);
+  }
+}
+
+</script>
+
+<br><br>
+<h4><a href = "index.html">Home</a></h4>
+
+</body>
+</html>
