@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
   <title>Naomi Flores ITC Nth Factorial, Sum and Average</title>
@@ -9,48 +9,52 @@
    text-align: center;
    }
 
-   #footerdiv{
-    position: fixed;
-    bottom:0;
-    color: white;
-   }
-
    #numberinput {
     color: white;
    }
 
    #output {
-    color: white;
     font-size: 20px;
     text-align: center;
    }
 
-   label {
-   color: white;
-   }
 
    a {
     color: #C71585;
     font-size: 20px;
    }
 
-   body {
-   background-color:#DDA0DD;
-   text-align: center;
-   }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background-color: #CCF1FF;
+      color: deeppink;
+      font-family: didot, serif;
+    }
+
+button {
+      background-color: plum;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-family: didot, serif;
+      font-size: 14px;
+      height: 40px;
+      line-height: 20px;
+      padding: 10px 16px;
+    }
 
 </style>
 </head>
 <body>
 
   <div id ="headerdiv">
-      <h1 id="pageheader" style ="color: white;">&#127800 Nth Factorial, Sum, and Average &#127800</h1>     
-   </div>
-    <div id ="footerdiv">
-      <h4 id="pagefooter">by Naomi Nathalie A. Flores</h4>     
+      <h1 id="pageheader">&#128026 Nth Factorial, Sum, and Average &#128026</h1>     
    </div>
 
-  <br><br><br><br><br>
+  <br><br><br><br>
   <label for="numberInput" style ="font-size: 25px;">Enter a number (n): </label>
   <input type="number" id="numberInput" min="1" style ="font-size: 20px" required>
   <button onclick="calculate()">Calculate</button>
@@ -58,7 +62,7 @@
   <div id="output" ></div>
     
     <br><br>
-    <a href = "index.html">Home</a>
+    <a style="font-size:20px;" href="index.html">Go to Home Page</a>
 
   <script>
     function calculate() {
