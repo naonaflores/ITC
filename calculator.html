@@ -1,22 +1,59 @@
-  <!DOCTYPE html>
+   <!DOCTYPE html>
 <html>
 <head>
   <title>Income Tax Calculator</title>
 
 <style>
 
+
   #modal {
   text-align: center;
   }
 
-  body {
-  font-family: Garamond, serif;
-  }
+ body {
+
+      background-color: #CCF1FF;
+      color: deeppink;
+      font-family: didot, serif;
+      font-size:20px;
+    }
+
+ .button {
+      background-color: plum;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-family: didot, serif;
+      font-size: 14px;
+      height: 40px;
+      line-height: 20px;
+      padding: 10px 16px;
+      width: 130px; 
+    }
+
+    a.button {
+      background-color: plum;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-family: didot, serif;
+      font-size: 14px;
+      height: 40px;
+      line-height: 20px;
+      padding: 10px 16px;
+      width: 130px; 
+      text-align: center;
+      text-decoration: none; 
+    }
+
+    input {
+    text-align: right;
+    }
 
   h1 {
-  text-align:center;
-  background-color: skyblue;
-  }
+      font-size: 40px;
+      font-weight: bold;
+    }
 
   a {
   color: deeppink;
@@ -26,17 +63,19 @@
 </head>
 <body>
 
-<div class="card">
-      <h1>&#128201 Calculate your Income Tax &#128200</h1>
+<div>
+      <h1><center>&#128026 Calculate your Income Tax &#128026</center></h1>
       <hr>
-      <!-- Income Tax Form -->
-      <form name="incomeTaxForm" autocomplete="off">
-        <input id="income" type="float" step="0.01" name="income" min="0" placeholder="Income">
-         <a href="#modal" class="btn btnBig" onclick="calcIncomeTax()">Enter</a>
-        <input type="reset" name="reset" class="btn btnBig">
-      </form>
-      <!-- /Income Tax Form -->
-  </div>
+    <br><br>
+
+    <form name="incomeTaxForm" autocomplete="off">
+    <center><input id="income" type="float" step="0.01" name="income" min="0" placeholder="Income">
+
+  <a href="#modal" class="button" onclick="calcIncomeTax()">Enter</a>
+
+    <a href="javascript:void(0);" class="button" onclick="resetForm()">Reset</a></center>
+    </form>
+</div>
   
   <!-- Modal -->
 <div class="modal" id="modal" aria-hidden="true">
@@ -84,10 +123,16 @@ function calcIncomeTax() {
   }
 }
 
+function resetForm() {
+    document.forms["incomeTaxForm"].reset();
+    document.getElementById("total").innerHTML = "";
+  }
+
+
 </script>
 
 <br><br>
-<h4><a href = "index.html">Home</a></h4>
+<h4><center><a style="font-size:20px;" href="index.html">Go to Home Page</a></center></h4>
 
 </body>
 </html>
