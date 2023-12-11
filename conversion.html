@@ -1,97 +1,104 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-<style>
-  
-  <title>Conversion</title>
+  <style>
+    #maindiv {
+      display: grid;
+      width: 98%;
 
-  #maindiv {
-    display:grid;
-    width: 98%;
-  }
+    }
 
-  #headerdiv {
+    input {
+      text-align: right;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    body {
+    background-color: #CCF1FF;
+      color: deeppink;
+      font-family: didot, serif;
+    }
+
+
+    .ftoc, .ctof, .mtof, .ftom{
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 2rem 2rem;
     text-align: center;
-    background-color: bisque;
-  }
+    font-size: 20px;
+    background-color: #FAFFC7;
+    outline-style: dashed;  
+    }
 
-  #headertitle {
-    text-align:center;
-  }
+  </style>
 
-</style>
+  <title>Conversion</title>
 </head>
 <body>
 
-  <div id = "maindiv">
-  <div id = "headerdiv">
-  <h1 id = "headertitle">&#129518 Conversion &#129518</h1>
-  <h3>Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to Meters</h3>
-  </div>
+  <div id="maindiv">
+    <div id="headerdiv">
+      <h1>&#129381 Conversion &#129381</h1>
+    </div>
 
-<br>
+   <div class = "ftoc">
+      <p>1. Fahrenheit to Celsius</p>
+      <label>Fahrenheit</label>
+      <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="fahrtocelConverter(this.value)" onchange="fahrtocelConverter(this.value)">
+      <p>Celcius: <span id="outputCelcius"></span></p>
+    </div>
 
-<p>1. Fahrenheit to Celsius</p>
+    <div class = "ctof">
+      <p>2. Celsius to Fahrenheit</p>
+      <label>Celsius</label>
+      <input id="inputCelsius" type="number" placeholder="Celsius" oninput="celtofahrConverter(this.value)" onchange="celtofahrConverter(this.value)">
+      <p>Fahrenheit: <span id="outputFahrenheit"></span></p>
+    </div>
 
-<p>
-  <label>Fahrenheit</label>
-  <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="fahrtocelConverter(this.value)" onchange="fahrtocelConverter(this.value)">
-</p>
-<p>Celcius: <span id="outputCelcius"></span></p>
+    <div class = "mtof">
+      <p>3. Meters to Feet</p>
+      <label>Meters</label>
+      <input id="inputMeters" type="number" placeholder="Meters" oninput="MetertoFeetConverter(this.value)" onchange="MetertoFeetConverter(this.value)">
+      <p>Feet: <span id="outputFeet"></span></p>
+    </div>
 
-<br><br><br>
+    <div class = "ftom">
+      <p>4. Feet to Meters</p>
+      <label>Feet</label>
+      <input id="inputFeet" type="number" placeholder="Feet" oninput="FeettoMeterConverter(this.value)" onchange="FeettoMeterConverter(this.value)">
+      <p>Meters: <span id="outputMeters"></span></p>
+    </div>
 
-<p>2. Celsius to Fahrenheit</p>
+    <script>
+  function fahrtocelConverter(valNum) {
+    valNum = parseFloat(valNum);
+    document.getElementById("outputCelcius").innerHTML = ((valNum - 32) / 1.8).toFixed(2);
+  }
 
-<p>
-  <label>Celsius</label>
-  <input id="inputCelsius" type="number" placeholder="Celsius" oninput="celtofahrConverter(this.value)" onchange="celtofahrConverter(this.value)">
-</p>
-<p>Fahrenheit: <span id="outputFahrenheit"></span></p>
+  function celtofahrConverter(valNum) {
+    valNum = parseFloat(valNum);
+    document.getElementById("outputFahrenheit").innerHTML = ((valNum * 1.8) + 32).toFixed(2);
+  }
 
-<br><br><br>
+  function MetertoFeetConverter(valNum) {
+    document.getElementById("outputFeet").innerHTML = (valNum * 3.2808).toFixed(2);
+  }
 
-<p>3. Meters to Feet</p>
-
-<p>
-  <label>Meters</label>
-  <input id="inputMeters" type="number" placeholder="Meters" oninput="MetertoFeetConverter(this.value)" onchange="MetertoFeetConverter(this.value)">
-</p>
-<p>Feet: <span id="outputFeet"></span></p>
-
-<br><br><br>
-
-<p>4. Feet to Meters</p>
-
-<p>
-  <label>Feet</label>
-  <input id="inputFeet" type="number" placeholder="Feet" oninput="FeettoMeterConverter(this.value)" onchange="FeettoMeterConverter(this.value)">
-</p>
-<p>Meters: <span id="outputMeters"></span></p>
-
-
-<script>
-function fahrtocelConverter(valNum) {
-  valNum = parseFloat(valNum);
-  document.getElementById("outputCelcius").innerHTML=(valNum-32)/1.8;
-}
-
-function celtofahrConverter(valNum) {
-  valNum = parseFloat(valNum);
-  document.getElementById("outputFahrenheit").innerHTML=(valNum*1.8)+32;
-}
-
-function MetertoFeetConverter(valNum) {
-  document.getElementById("outputFeet").innerHTML=valNum*3.2808;
-}
-
-function FeettoMeterConverter(valNum) {
-  document.getElementById("outputMeters").innerHTML=valNum/3.2808;
-}
+  function FeettoMeterConverter(valNum) {
+    document.getElementById("outputMeters").innerHTML = (valNum / 3.2808).toFixed(2);
+  }
 </script>
 
-<br><br><br>
-<a href = "index.html">Home</a>
+
+    <br><br><br>
+   <center><a style="font-size:20px;" href="index.html">Go to Home Page</a></center>
+
+  </div>
 
 </body>
 </html>
